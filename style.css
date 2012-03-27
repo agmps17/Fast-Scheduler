@@ -1,0 +1,225 @@
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #a8b5b2;
+	background: #121e1b url(images/templatemo_main_bg.png) repeat;
+}
+
+/*HEADER   */
+
+#login_index{
+	clear:both;
+	width: 860px;
+	height:30px;
+	margin-left:200px;
+	padding: 10px 60px 10px 60px;
+	background: url(images/templatemo_content_middle.png) repeat-y;
+
+
+
+}
+
+#top_panel {
+	width: 940px;
+	height: 141px;
+	padding: 0 20px;
+	margin-left:200px;
+    background: url(images/templatemo_top_panel_bg.png);
+}
+#top_panel #top_panel_ls {
+	float: left;
+	width: 280px;
+}
+
+#templatemo_site_title {
+	margin-left: 20px;
+	padding-top: 45px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+#top_panel #top_panel_rs {
+	float: right;
+	width: 660px;
+}
+
+
+
+
+
+
+
+
+
+
+#templatemo_menu {
+	clear: both;
+}
+
+#templatemo_menu ul {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+#templatemo_menu ul li{
+	display: inline;
+}
+
+#templatemo_menu ul li a{
+	float: left;
+	display: block;
+	height: 40px;
+	margin-left: 10px;
+	padding: 17px 30px 0 20px;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffffff;	
+	outline: none;
+}
+
+
+#templatemo_menu li a:hover, #templatemo_menu li .current{
+	position: relative;
+	color: #ffffff;
+	background: url(images/templatemo_menu_button_right.png) bottom right no-repeat;
+}
+
+#templatemo_menu li a:hover span, #templatemo_menu li .current span	{
+	position: absolute;
+	display: inline-block;
+	width: 10px;
+	height: 57px;
+	bottom: 0px;
+	left: -10px;
+	background: url(images/templatemo_menu_button_left.png) left bottom no-repeat;
+}
+
+/* END OF HEADER*/
+/* footer*/
+
+
+#templatemo_footer {
+	width: 900px;
+	height: 45px;
+	padding: 20px 40px 0 40px;
+	text-align: left;
+	margin-left:200px;
+	background: url(images/templatemo_footer.png) no-repeat;
+}
+
+#templatemo_footer a {
+	color: #ffffff;
+	font-weight: bold;
+	
+	
+}
+#templatemo_footer span{
+
+margin-left:80px;
+
+
+
+}
+
+
+/* END OF FOOTER*/
+
+
+
+
+
+/*content*/
+
+#ct {
+	clear: both;
+	width: 980px;
+	height: 20px;
+	margin-left:200px;
+	background: url(images/templatemo_content_top.png) no-repeat;
+}
+
+
+#cb {
+	clear: both;
+	width: 980px;
+	height: 50px;
+	margin-left:200px;
+	background: url(images/templatemo_content_bottom.png) no-repeat;
+}
+#content {
+	clear: both;
+	width: 860px;
+	height:1000px;
+	margin-left:200px;
+	padding: 10px 60px 10px 60px;
+	background: url(images/templatemo_content_middle.png) repeat-y;
+}
+
+
+#side_panel{
+
+float:left;
+border-right:2px solid Black;
+height:1008px;
+width:200px;
+margin-left:-20px;
+margin-top:-8px;
+
+
+}
+#main_panel{
+float:right;
+height:1000px;
+margin-left:-20px;
+margin-top:-8px;
+width:670px;
+
+
+
+
+}
+
+
+
+.side_menu{
+
+background: url(images/templatemo_menu_button_right.png) bottom right no-repeat;
+
+
+
+}
+Table{
+
+border-collapse:collapse;
+color:white;;
+font-size:12px;
+}
+Table td{
+
+width:100px;
+border-style:inset;
+
+
+}
+Table tr{
+
+border-style:inset;
+
+}
+
+#headTable{
+color:Blue;
+background-color:rgb(190,157,62);
+
+
+
+}
+
+

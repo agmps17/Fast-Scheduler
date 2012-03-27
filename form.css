@@ -1,0 +1,96 @@
+.cssform p{
+width:400px;
+clear: left;
+margin: 2px;
+padding: 5px 0 8px 0;
+padding-left: 130px; /*width of left column containing the label elements*/
+height: 1%;
+font-weight:bold;
+color:white;
+}
+.cssform fieldset{
+position:relative;
+left:10;
+top:50;
+width:400px;
+clear: left;
+margin: 10px;
+padding: 5px 0 8px 0;
+text-align:left;
+border-color:rgb(100,175,250);
+background-color:rgb(29,29,29);
+
+
+}
+.cssform label{
+font-weight: bold;
+float: left;
+margin-left: -130px; /*width of left column*/
+width: 100px; /*width of labels. Should be smaller than left column (155px) to create some right margin*/
+}
+
+.cssform input[type="text"],input[type="password"]{ /*width of text boxes. IE6 does not understand this attribute*/
+width: 250px;
+}
+.cssform textarea{
+width:250px;
+height: 100px;
+}
+
+/*.threepxfix class below:
+Targets IE6- ONLY. Adds 3 pixel indent for multi-line form contents.
+to account for 3 pixel bug: http://www.positioniseverything.net/explorer/threepxtest.html
+*/
+
+* html .threepxfix{
+margin-left: 3px;
+}
+.cssform .heading{
+background-color:Green;
+width:99%;
+padding: 5px 0 8px 0;
+font-weight:bold;
+font-size:15px;
+}
+.cssform select{
+	width:250px;
+
+
+}
+
+
+
+.Hint{
+color:blue;
+display:none;
+font-size:12px;
+vertical-align:middle;
+
+
+
+
+}
+.Error{
+color:red;
+display:none;
+font-size:12px;
+
+}
+
+
+.mand{
+color:red;
+}
+
+
+.cssform{
+
+height:60%;
+width:560px;
+position:relative;
+
+
+
+
+
+}
