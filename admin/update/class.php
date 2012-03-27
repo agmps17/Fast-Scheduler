@@ -2,8 +2,9 @@
 session_start();
 
 
-		mysql_connect("localhost","root","arpit") or die("first");
-		mysql_select_db("timetable") or die ("second");
+		include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
 		$rs=mysql_query("select * from class_detail where (name='".$_REQUEST['name']."'&& class_id!=".$_REQUEST ["class_id"]." ) && group_id=".$_SESSION ["group_id"]."")or die(mysql_error());
 		
 		

@@ -1,8 +1,9 @@
 <?php
 
-		mysql_connect("localhost","root","arpit") or die("first");
-		mysql_select_db("timetable") or die ("second");
-		
+		include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
+		 session_start();
 		foreach($_REQUEST as $key => $value){
 		
 		$_REQUEST [$key]=mysql_real_escape_string($_REQUEST [$key]);
@@ -16,30 +17,30 @@
 		$row=mysql_fetch_array($rs);
 		
 		$rowa=mysql_fetch_array($rs1);
-		echo $rowa['login_type'];
+		
 		
 		if(mysql_num_rows($rs)==1)
 		{
-		session_start();
+		
 		session_register("username");
 		session_register("group_id");
 		$_SESSION["username"]=$_REQUEST ['username'];
 		$_SESSION["group_id"]=$row['group_id'];
 		
-		header("location:admin/admin.php");
+		header("location:admin/index.php");
 		
 		}
 		
 		elseif(mysql_num_rows($rs1)==1){
-		 session_start();
+		
 		
 		if($rowa['login_type']=='Admin'){
-		session_register("username");
+		session_register("userAdimn");
 		session_register("group_id");
-		$_SESSION["username"]=$_REQUEST ['username'];
+		$_SESSION["userAdmin"]=$_REQUEST ['username'];
 		$_SESSION["group_id"]=$rowa['group_id'];
 		
-		header("location:admin/admin.php");
+		header("location:admin/index.php");
 		
 		
 		}
@@ -48,7 +49,7 @@
 		session_register("group_id");
 		$_SESSION["usernameLimited"]=$_REQUEST ['username'];
 		$_SESSION["group_id"]=$rowa['group_id'];
-		header("location:user/user.php");
+		header("location:user/index.php");
 		
 		}
 		}

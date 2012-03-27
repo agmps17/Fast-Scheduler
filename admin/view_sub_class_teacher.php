@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_update.php");
 				
 				
 					?>
@@ -63,18 +63,46 @@ if(!isset($_SESSION['username']))
 				
 					<?php
 					
-						mysql_connect("localhost","root","arpit") or die("first");
-						mysql_select_db("timetable") or die ("second");
+						include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
 					 $rp=mysql_query("select * from sub_class_teach where group_id=".$_SESSION['group_id']." ") or die(mysql_error());
+					 if (!(isset($_GET['page']))) 
+
+					 { 
+
+					 $_GET['page'] = 1; 
+
+					 } 
+										 
+					 $rows=mysql_num_rows($rp);
 					 
+					 $page_rows = 10; 
 					 
+					 $last = ceil($rows/$page_rows); 
+					 if ($_GET['page'] < 1) 
+
+					 { 
+
+					 $_GET['page'] = 1; 
+
+					 } 
+
+					 elseif ($_GET['page'] > $last) 
+
+					 { 
+
+					 $_GET['page'] = $last; 
+
+					 } 
 					 
+					 $max = 'limit ' .($_GET['page']- 1) * $page_rows .',' .$page_rows; 
 					 
+					$rp_f=mysql_query("select * from sub_class_teach where group_id=".$_SESSION['group_id']." $max") or die(header("location:sub_teach_class.php?errmsg=Submit Details First")); 
 					 
-					echo "<table border='1' id='viewTable'>";
-					echo "<tr id='headTable'><td>Teacher Name(ID)</td><td>Class</td><td>Subject(Type)</td></tr>";
-					
-					while($row=mysql_fetch_array($rp)){
+					echo "<div id='tableview'><table border='1' id='viewTable'>";
+					echo "<tr id='headTable'><td>Teacher Name(ID)</td><td>Class</td><td>Subject(Type)</td><td>Action</td></tr>";
+					while($row=mysql_fetch_array($rp_f)){
 					$sa=mysql_query("select concat(name,'(',sub_type,')') subject from sub_detail where group_id=".$_SESSION['group_id']."&& sub_id=".$row['sub_id']);
 					$sb=mysql_query("select concat(name,'(',teacher_id,')') teacher from teacher_detail where group_id=".$_SESSION['group_id']."&& teacher_id=".$row['teacher_id']);	
 					$sc=mysql_query("select name from class_detail where group_id=".$_SESSION['group_id']."&& class_id=".$row['class_id']);		
@@ -82,17 +110,64 @@ if(!isset($_SESSION['username']))
 					$d=mysql_fetch_array($sa);
 					$e=mysql_fetch_array($sb);
 					$f=mysql_fetch_array($sc);
-					
-					
-		
-						echo "<tr><td>".$e['teacher']."</td><td>".$f['name']."</td><td>".$d['subject']."</td></tr>";
-		
-		
-									}
+					echo "<tr><td>".$e['teacher']."</td><td>".$f['name']."</td><td>".$d['subject']."</td><td><a href='remove_sub_class_teacher.php?key=".$row['key']."' class='link'>REMOVE</a></td></tr>";
+					}
+								
 					echo "</table>";
+					echo " <p><b>--Page ".$_GET['page']." of $last--</b> </p>";
+					if($last!=1){
+						
+								if ($_GET['page'] == 1 ) 
+
+					 {
+						$next = $_GET['page']+1;
+
+						echo " <a href='{$_SERVER['PHP_SELF']}?page=$next' class='navigatePage'><b>Next ->></b></a> ";
+						echo " <a href='{$_SERVER['PHP_SELF']}?page=$last' class='navigatePage'>Last ->></a> ";
+					 } 
+
+					   
 					
+					 else if ($_GET['page'] == $last) 
+
+					 {
+					 echo " <a href='{$_SERVER['PHP_SELF']}?page=1' class='navigatePage'> <<-First</a> ";
+
+					$next = $_GET['page']+1;
+
+					
+					$previous = $_GET['page']-1;
+					echo " <a href='{$_SERVER['PHP_SELF']}?page=$previous' class='navigatePage'><<-Previous</a> ";
+
+					 } 
+					else 
+
+					 {
+
+					 echo " <a href='{$_SERVER['PHP_SELF']}?page=1' class='navigatePage'><<- First</a> ";
+
+					$next = $_GET['page']+1;
+
+					echo " <a href='{$_SERVER['PHP_SELF']}?page=$next' class='navigatePage'><b>Next ->></b></a> ";
+
+					$previous = $_GET['page']-1;
+
+					echo " <a href='{$_SERVER['PHP_SELF']}?page=$previous' class='navigatePage'><<-Previous</a> ";
+					
+					echo " <a href='{$_SERVER['PHP_SELF']}?pagenum=$last' class='navigatePage'>Last ->></a> ";		
+					 }
+					
+					
+					
+					
+					}
+					 
+					
+					
+					echo "</div>";
 					
 					?>
+					
 				
 				
 				</div>

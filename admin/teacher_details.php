@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_insert.php");
 				
 				
 					?>
@@ -71,6 +71,12 @@ if(!isset($_SESSION['username']))
 									{
 									echo "<b style='color:red;margin-left:100px;font-size:20px;'>Teacher  Detail saved successfully</b>";
 				
+									}
+									if(isset($_GET['errmsg'])){
+									
+									
+									echo "<p ><span class='errmsg'>".$_GET['errmsg']."</span></p>";
+									
 									}
 				
 				
@@ -92,12 +98,13 @@ if(!isset($_SESSION['username']))
 								<span class="mand">*<span></label>
 								<select  id="teacherType" name="type">
 								<?php
-								mysql_connect("localhost","root","arpit") or die("first");
-								mysql_select_db("timetable") or die ("second");
-								$rp=mysql_query("select type from type_details where group_id=".$_SESSION['group_id']."");
+								include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
+								$rp=mysql_query("select type,type_id from type_details where group_id=".$_SESSION['group_id']."");
 								while($row=mysql_fetch_array($rp)){
 		
-								echo "<option>".$row['type']."</option>";
+								echo "<option value=".$row['type_id'].">".$row['type']."</option>";
 		
 		
 									}
@@ -144,7 +151,7 @@ if(!isset($_SESSION['username']))
 	
 							<p><label for="">Experience
 								<span class="mand">*<span></label>
-								<input type="text" id="" name="experience" />
+								<input type="text" id="txtexperience" name="experience" />
 								<span class="Error">REQUIRED</span>
 							</p>
 							
@@ -152,7 +159,7 @@ if(!isset($_SESSION['username']))
 								<span class="mand">*<span></label>
 								<select  id="" name="logInType" >
 								<option>Admin</option>
-								<option>Limited</option>
+								<option selected>Limited</option>
 								</select>
 								<span class="Error">REQUIRED</span>
 							</p>

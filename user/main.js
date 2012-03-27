@@ -8,11 +8,11 @@ $('#editProfile').click(function(){
 	$("#txtPhoneNo")[0].disabled=false;
 	$("#txtUserAddress")[0].disabled=false;
 	$("#txtPassword")[0].disabled=false;	
-	
+	$("#txtupdate")[0].disabled=false;
 	
 	});
 	
-	$("#update").click(function(){
+	$("#txtupdate").click(function(){
 	
 	$("#txtId")[0].disabled=false;
 	

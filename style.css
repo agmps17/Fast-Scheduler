@@ -2,10 +2,11 @@ body {
 	margin: 0;
 	padding: 0;
 	line-height: 1.5em;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif,freestyle script;
 	font-size: 12px;
 	color: #a8b5b2;
 	background: #121e1b url(images/templatemo_main_bg.png) repeat;
+	
 }
 
 /*HEADER   */
@@ -14,7 +15,7 @@ body {
 	clear:both;
 	width: 860px;
 	height:30px;
-	margin-left:200px;
+	margin-left:100px;
 	padding: 10px 60px 10px 60px;
 	background: url(images/templatemo_content_middle.png) repeat-y;
 
@@ -26,7 +27,7 @@ body {
 	width: 940px;
 	height: 141px;
 	padding: 0 20px;
-	margin-left:200px;
+	margin-left:100px;
     background: url(images/templatemo_top_panel_bg.png);
 }
 #top_panel #top_panel_ls {
@@ -75,7 +76,7 @@ body {
 	float: left;
 	display: block;
 	height: 40px;
-	margin-left: 10px;
+	margin-left: 5px;
 	padding: 17px 30px 0 20px;
 	font-size: 13px;
 	font-weight: bold;
@@ -110,7 +111,7 @@ body {
 	height: 45px;
 	padding: 20px 40px 0 40px;
 	text-align: left;
-	margin-left:200px;
+	margin-left:100px;
 	background: url(images/templatemo_footer.png) no-repeat;
 }
 
@@ -141,7 +142,7 @@ margin-left:80px;
 	clear: both;
 	width: 980px;
 	height: 20px;
-	margin-left:200px;
+	margin-left:100px;
 	background: url(images/templatemo_content_top.png) no-repeat;
 }
 
@@ -150,24 +151,27 @@ margin-left:80px;
 	clear: both;
 	width: 980px;
 	height: 50px;
-	margin-left:200px;
+	margin-left:100px;
 	background: url(images/templatemo_content_bottom.png) no-repeat;
 }
 #content {
 	clear: both;
 	width: 860px;
 	height:1000px;
-	margin-left:200px;
+	margin-left:100px;
 	padding: 10px 60px 10px 60px;
 	background: url(images/templatemo_content_middle.png) repeat-y;
-}
+	overflow:auto;
+	
+	
+	}
 
 
 #side_panel{
 
 float:left;
 border-right:2px solid Black;
-height:1008px;
+height:998px;
 width:200px;
 margin-left:-20px;
 margin-top:-8px;
@@ -176,13 +180,9 @@ margin-top:-8px;
 }
 #main_panel{
 float:right;
-height:1000px;
-margin-left:-20px;
+height:998px;
 margin-top:-8px;
-width:670px;
-
-
-
+width:650px;
 
 }
 
@@ -198,28 +198,77 @@ background: url(images/templatemo_menu_button_right.png) bottom right no-repeat;
 Table{
 
 border-collapse:collapse;
-color:white;;
+color:white;
 font-size:12px;
+width:640px;
+border-width:2px;
+}
+#tableview{
+margin-left:30px;
+border:2px outset black;
+width:640px;
+overflow:auto;
+
 }
 Table td{
 
-width:100px;
+width:120px;
 border-style:inset;
-
+text-align:center;
 
 }
 Table tr{
-
+height:30px;
 border-style:inset;
-
+border-width:2px;
 }
 
 #headTable{
 color:Blue;
 background-color:rgb(190,157,62);
 
+}
+
+a.link{
+text-decoration:none;
+font-weight:bold;
+font-size:15px;
+color:white;
+
 
 
 }
+.navigatePage{
+text-decoration:none;
+font-size:20px;
+color:BLUE;
+margin-right:20px;
+text-align:right;
+position:relative;
+left:150px;
 
 
+}
+.errmsg{
+color:RED;
+
+font-size:15px;
+
+}
+span.title{
+color:rgb(190,157,62);
+font-family:freestyle script;
+font-size:30px;
+
+
+
+}
+span.head{
+font-weight:bold;
+font-size:30px;
+color:rgb(190,157,62);
+line-height:40px;
+
+
+
+}

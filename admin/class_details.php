@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_insert.php");
 				
 				
 					?>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['username']))
 					<form action="insert/class.php" method="post" class="cssform" id="regClass">
 					
 						<fieldset>
-							<legend>Distribution Of Teacher</legend>
+							<legend>Class Introduction</legend>
 							
 								<?php
 				
@@ -71,6 +71,12 @@ if(!isset($_SESSION['username']))
 									{
 									echo "<b style='color:red;margin-left:100px;font-size:20px;'>Class Detail saved successfully</b>";
 				
+									}
+									if(isset($_GET['errmsg'])){
+									
+									
+									echo "<p ><span class='errmsg'>".$_GET['errmsg']."</span></p>";
+									
 									}
 				
 				

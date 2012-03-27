@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_insert.php");
 				
 				
 					?>
@@ -73,6 +73,12 @@ if(!isset($_SESSION['username']))
 									
 				
 									}
+									if(isset($_GET['errmsg'])){
+									
+									
+									echo "<p ><span class='errmsg'>".$_GET['errmsg']."</span></p>";
+									
+									}
 				
 				
 									?>
@@ -92,6 +98,14 @@ if(!isset($_SESSION['username']))
 								<option>Practical</option>
 								
 								</select>
+								<span  class="Error">REQUIRED</span>
+							</p>
+							
+							
+							<p><label for="">Subject Weekly Load
+								<span class="mand">*<span></label>
+								<input type='text' id="subjectLoad" name="subload" />
+								
 								<span  class="Error">REQUIRED</span>
 							</p>
 							

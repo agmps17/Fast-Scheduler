@@ -53,7 +53,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_update.php");
 				
 				
 					?>
@@ -80,8 +80,9 @@ if(!isset($_SESSION['username']))
 	
 	
 		<?php					
-		mysql_connect("localhost","root","arpit") or die("first");
-		mysql_select_db("timetable") or die ("second");
+		include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
 							
 							
 							
@@ -102,15 +103,11 @@ if(!isset($_SESSION['username']))
 							</p>
 							
 													
-							<p><label for=''>Minimum load in a week
-								<span class='mand'>*<span></label>
-								<input type='text' id='minLoad' value='".$a['week_max']."' name='min_load' disabled/>
-								<span  class='Error'>REQUIRED</span>
-							</p>
+							
 							
 							<p><label for=''>Maximum load in a week
 								<span class='mand'>*<span></label>
-								<input type='text' id='maxLoad' value='".$a['week_min']."' name='max_load' disabled />
+								<input type='text' id='maxLoad' value='".$a['week_max']."' name='max_load' disabled />
 								<span  class='Error'>REQUIRED</span>
 							</p>
 							
@@ -132,7 +129,7 @@ if(!isset($_SESSION['username']))
 							
 							
 							
-							<p><input type='button' id='editType' value='EDIT' /><input id='update' type='submit' value='UPDATE' /> <input type='reset' value='RESET' /></p>";
+							<p><input type='button' id='editType' value='EDIT' /><input id='txtupdate' type='submit' value='UPDATE' disabled /> <input type='reset' value='RESET' /></p>";
 			
 			
 			?>

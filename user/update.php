@@ -28,7 +28,22 @@ if(!isset($_SESSION['usernameLimited']))
 			
 	
 		</script>
-	
+	<style type="text/css">
+		
+			
+			#update{
+		position: relative;
+	color: #ffffff;
+	background: url(../images/templatemo_menu_button_right.png) bottom right no-repeat;
+		
+		
+		
+		
+		
+		}
+			
+			
+		</style>
 	
 	</head>
 	
@@ -52,7 +67,7 @@ if(!isset($_SESSION['usernameLimited']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side.php");
 				
 				
 					?>
@@ -78,8 +93,9 @@ if(!isset($_SESSION['usernameLimited']))
 		
 	
 				<?php
-						mysql_connect("localhost","root","arpit") or die("first");
-								mysql_select_db("timetable") or die ("second");
+						include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
 							
 							
 							
@@ -143,7 +159,7 @@ if(!isset($_SESSION['usernameLimited']))
 							
 							
 		
-							echo"<p><input type='button' id='editProfile' value='EDIT' /><input id='update' type='submit' value='UPDATE' /> <input type='reset' value='RESET' /></p>";
+							echo"<p><input type='button' id='editProfile' value='EDIT' /><input id='txtupdate' type='submit' value='UPDATE' disabled/> <input type='reset' value='RESET' /></p>";
 							
 							
 				?>			

@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side_insert.php");
 				
 				
 					?>
@@ -72,21 +72,48 @@ if(!isset($_SESSION['username']))
 									echo "<b style='color:red;margin-left:100px;font-size:20px;'>Class Detail saved successfully</b>";
 				
 									}
+									if(isset($_GET['errmsg'])){
+									
+									
+									echo "<p ><span class='errmsg'>".$_GET['errmsg']."</span></p>";
+									
+									}
 				
 				
 									?>
+							<p><label for="">Class Name
+								<span class="mand">*<span></label>
+								<select id="className" name="class_id">
+								<?php
+								include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
+								$rp=mysql_query("select name,class_id from class_detail where group_id=".$_SESSION['group_id']."");
+								while($row=mysql_fetch_array($rp)){
+		
+								echo "<option value=".$row['class_id'].">".$row['name']."</option>";
+		
+		
+									}
+								
+								?>
+								
+								
+								
+								</select>
+								<span  class="Error">REQUIRED</span>
+							</p>		
 		
 	
 							<p><label for="">Subject Name
 								<span class="mand">*<span></label>
-								<select  id="subjectName" name="subject_name">
+								<select  id="subjectName" name="sub_id">
 								<?php
-								mysql_connect("localhost","root","arpit") or die("first");
-								mysql_select_db("timetable") or die ("second");
-								$rp=mysql_query("select concat(name,'(',sub_type,')') subject from sub_detail where group_id=".$_SESSION['group_id']."");
+							
+								$rp=mysql_query("select concat(name,'(',sub_type,')') subject,sub_id from sub_detail where group_id=".$_SESSION['group_id']."");
 								while($row=mysql_fetch_array($rp)){
 		
-								echo "<option>".$row['subject']."</option>";
+								echo "<option value=".$row['sub_id'].">".$row['subject']."</option>";
 		
 		
 									}
@@ -100,14 +127,16 @@ if(!isset($_SESSION['username']))
 							</p>
 							<p><label for="">Teacher Name
 								<span class="mand">*<span></label>
-								<select id="teacherName" name="teacher_name">
+								<select id="teacherName" name="teacher_id">
 								<?php
-								mysql_connect("localhost","root","arpit") or die("first");
-								mysql_select_db("timetable") or die ("second");
-								$rp=mysql_query("select concat(name,'(',teacher_id,')') teacher from teacher_detail where group_id=".$_SESSION['group_id']."");
+							
+								
+								
+								$rp=mysql_query("select concat(name,'(',teacher_id,')') teacher,teacher_id from teacher_detail where group_id=".$_SESSION['group_id']."");
+								
 								while($row=mysql_fetch_array($rp)){
 		
-								echo "<option>".$row['teacher']."</option>";
+								echo "<option value=".$row['teacher_id']." >".$row['teacher']."</option>";
 		
 		
 									}
@@ -120,27 +149,7 @@ if(!isset($_SESSION['username']))
 								<span  class="Error">REQUIRED</span>
 							</p>
 							
-							<p><label for="">Class Name
-								<span class="mand">*<span></label>
-								<select id="className" name="class_name">
-								<?php
-								mysql_connect("localhost","root","arpit") or die("first");
-								mysql_select_db("timetable") or die ("second");
-								$rp=mysql_query("select name from class_detail where group_id=".$_SESSION['group_id']."");
-								while($row=mysql_fetch_array($rp)){
-		
-								echo "<option>".$row['name']."</option>";
-		
-		
-									}
-								
-								?>
-								
-								
-								
-								</select>
-								<span  class="Error">REQUIRED</span>
-							</p>
+							
 							
 							
 							

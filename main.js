@@ -48,16 +48,7 @@ $(document).ready(function(){
 					
 					
 					
-					if($.trim($("#City").val())==""){
-					i++; 	
-                    $("p:has(#City) .Error").fadeIn();  
-					}
 					
-					
-					if($.trim($("#Country").val())==""){
-					i++; 	
-                    $("p:has(#Country) .Error").fadeIn();  
-					}
 					
 					
 					if(i>0)
@@ -90,16 +81,7 @@ $(document).ready(function(){
 				
 				
 				});
-				$("#Country").focus(function(){
-				$("p:has(#Country) .Hint").fadeIn();
 				
-				
-				});
-				$("#City").focus(function(){
-				
-				$("p:has(#City) .Hint").fadeIn();
-				
-				});
 				$("#txtComment").focus(function(){
 				
 				$("p:has(#txtComment) .Hint").fadeIn();
@@ -127,16 +109,7 @@ $(document).ready(function(){
 				$("p:has(#txtPassword) .Hint").fadeOut(100);
 				
 				});
-				$("#txtPhoneNo").blur(function(){
-				$("p:has(#txtPhoneNo) .Hint").fadeOut(100);
 				
-				
-				});
-				$("#Country").blur(function(){
-				$("p:has(#Country) .Hint").fadeOut(100);
-				
-				
-				});
 				$("#City").blur(function(){
 				
 				$("p:has(#City) .Hint").fadeOut(100);
@@ -147,6 +120,29 @@ $(document).ready(function(){
 				$("p:has(#txtComment) .Hint").fadeOut(100);
 				
 				});
+				
+				$("#suggestion").submit(function(){
+					i=0;
+					$(".error").fadeOut(10);
+				
+                    if($.trim($("#name").val())==""){
+					i++ ;
+					$("p:has(#name) .Error").fadeIn();
+					  
+					}
+					
+					
+					if($.trim($("#email").val())==""){
+						i++; 
+					$("p:has(#email) .Error").fadeIn();	
+				
+					}	
+				
+					if(i>0)
+					return false;
+					else
+					return true;
+                });
 				
 				
 				

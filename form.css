@@ -4,7 +4,7 @@ clear: left;
 margin: 2px;
 padding: 5px 0 8px 0;
 padding-left: 130px; /*width of left column containing the label elements*/
-height: 1%;
+
 font-weight:bold;
 color:white;
 }
@@ -12,7 +12,7 @@ color:white;
 position:relative;
 left:10;
 top:50;
-width:400px;
+width:500px;
 clear: left;
 margin: 10px;
 padding: 5px 0 8px 0;
@@ -46,11 +46,12 @@ to account for 3 pixel bug: http://www.positioniseverything.net/explorer/threepx
 margin-left: 3px;
 }
 .cssform .heading{
-background-color:Green;
+background-color:rgb(156,194,234);
 width:99%;
 padding: 5px 0 8px 0;
 font-weight:bold;
 font-size:15px;
+color:black;
 }
 .cssform select{
 	width:250px;

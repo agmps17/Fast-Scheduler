@@ -28,7 +28,22 @@ if(!isset($_SESSION['usernameLimited']))
 			
 	
 		</script>
-	
+	<style type="text/css">
+		
+			
+			#profile{
+		position: relative;
+	color: #ffffff;
+	background: url(../images/templatemo_menu_button_right.png) bottom right no-repeat;
+		
+		
+		
+		
+		
+		}
+			
+			
+		</style>
 	
 	</head>
 	
@@ -52,7 +67,7 @@ if(!isset($_SESSION['usernameLimited']))
 				<div id="side_panel">
 					<?php
 				
-						include("home.php");
+						include("side.php");
 				
 				
 					?>
@@ -62,8 +77,9 @@ if(!isset($_SESSION['usernameLimited']))
 				<div id="main_panel">
 				<?php
 					
-						mysql_connect("localhost","root","arpit") or die("first");
-						mysql_select_db("timetable") or die ("second");
+						include("config.php");
+		mysql_connect($config["DB_HOST"],$config["DB_USER"],$config["DB_PASS"]);
+		mysql_select_db($config["DB_NAME"]);
 					 	$rs=mysql_query("select * from teacher_detail where email_id='".$_SESSION['usernameLimited']."'" ) or die(mysql_error());
 					 	
 					 	
@@ -77,7 +93,7 @@ if(!isset($_SESSION['usernameLimited']))
 		
 		
 		
-		echo "<table border='1' id='viewTable'><tr><td>Name:</td><td>".$row['name']."</td></tr><tr><td>id:</td><td>".$row['teacher_id']."</td></tr><tr><td>Email Id:</td><td>".$row['email_id']."</td></tr><tr><td>Designation:</td><td>".$p['type']."</td></tr><tr><td>Address:</td><td>".$row['address']."</td></tr><tr><td>Contact No.:</td><td>".$row['phonenumber']."</td></tr></table>"
+		echo "<table border='1' id='viewTable'><tr><td id='headTable'>Name:</td><td>".$row['name']."</td></tr><tr><td id='headTable'>id:</td><td >".$row['teacher_id']."</td></tr><tr><td id='headTable'>Email Id:</td><td >".$row['email_id']."</td></tr><tr><td id='headTable'>Designation:</td><td >".$p['type']."</td></tr><tr><td id='headTable'>Address:</td><td>".$row['address']."</td></tr><tr><td id='headTable'>Contact No.:</td><td>".$row['phonenumber']."</td></tr></table>"
 							
 					
 					

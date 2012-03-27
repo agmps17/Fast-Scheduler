@@ -18,11 +18,19 @@ session_start();
 			.cssform p{
 			
 			width:600px;
-			
-			
 			}
+			#register{
+		position: relative;
+	color: #ffffff;
+	background: url(images/templatemo_menu_button_right.png) bottom right no-repeat;
 		
 		
+		
+		
+		
+		}
+			
+			
 		</style>
 	</head>
 	
@@ -31,10 +39,6 @@ session_start();
 	<body>
 		<?php
 		
-		if(!isset($_SESSION['username']))
-		include("top.php");
-		else
-		include("loggedin.php");
 		include("header.php");
 	
 		?>
@@ -44,9 +48,20 @@ session_start();
 		
 		
 		<div id="content">
-			<form  action="reg.php" method="post" class="cssform" id="RegForm" >
+			<form  action="reg.php" method="post" class="cssform" id="RegForm" '>
 					<fieldset style="width:600px;" >
 						<legend>REGISTER</legend>
+						
+						
+						<?php
+						if(isset($_GET['errmsg'])){
+									
+									
+									echo "<p ><span class='errmsg'>".$_GET['errmsg']."</span></p>";
+									
+									}
+						?>			
+									
 						<p class="heading" >Personal Information</p>
 						
 						
@@ -83,33 +98,7 @@ session_start();
 						</textarea>
 						<span 	class="Hint">Enter Your Address</span>
 						<span  class="Error">This Field cannot be left blank</span></p>
-						
-						
-						
-						<p><label for="City">City
-						<span class="mand">*<span></label>
-						<select id="City" name="city" >
-						<option ></option><option >Jaipur</option>
-						</select>
-						<span  class="Hint">Select Your City Name</span>
-						<span class="Error">This Field cannot be left blank</span></p>
-						
-						
-						
-						<p><label for="Country" >Country
-						<span class="mand">*<span></label>
-						<select id="Country" name="country" ><option ></option>
-						<option >India</option></select>
-						<span  class="Hint">Select Your Country Name</span>
-						<span class="Error">This Field cannot be left blank</span></p>
-						
-						
-						
-						
-						
-						
-						
-						
+				
 						<p><label for="txtPhoneNo">PHONE NO.
 						<span class="mand">*<span></label>
 						<input type="text" id="txtPhoneNo" name="phoneno" />
